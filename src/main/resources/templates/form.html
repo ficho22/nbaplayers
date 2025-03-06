@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Form</title>
+</head>
+<body>
+
+<form th:method="POST" th:action="${player != null and player.id != null and player.id > 0} ? '/players/' + ${player.id} : '/players'">
+    <div>
+        <label for="name">Name</label>
+        <input type="text"
+               id="name"
+               name="name"
+               th:value="${player?.getName()}"
+               required>
+    </div>
+    <div>
+        <label for="team">Team</label>
+        <input type="text"
+               id="team"
+               name="team"
+               th:value="${player?.getTeam()}"
+               required>
+    </div>
+    <div>
+        <label for="pos">Position</label>
+        <input type="text"
+               id="pos"
+               name="pos"
+               th:value="${player?.getPos()}"
+               required>
+    </div>
+    <div>
+        <label for="age">Age</label>
+        <input type="number"
+               id="age"
+               name="age"
+               th:value="${player?.getApg()}"
+               required>
+    </div>
+
+    <div>
+        <label for="ppg">Points per game</label>
+        <input type="number"
+               id="ppg"
+               name="ppg"
+               th:value="${player?.getPpg()}"
+               required>
+    </div>
+
+    <div>
+        <label for="apg">Assists per game</label>
+        <input type="number"
+               id="apg"
+               name="apg"
+               th:value="${player?.getApg()}"
+               required>
+    </div>
+
+    <div>
+        <label for="rpg">Rebounds per game</label>
+        <input type="number"
+               id="rpg"
+               name="rpg"
+               th:value="${player?.getRpg()}"
+               required>
+    </div>
+    <button id="submit" type="submit">Submit</button>
+    <a id="back" href="/players" type="button" class="btn btn-primary">Back to players</a>
+</form>
+
+</body>
+</html>
